@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-
+from cli import MotoristaCLI
 from Model.Corrida import Corrida
 from Model.Motorista import Motorista
 from Model.Passageiro import Passageiro
@@ -13,6 +13,5 @@ db = client["S202-L2"]
 motoristaCLI = MotoristaCLI()
 motoristaCLI.create_motorista()
 
-
-
+MotoristaCLI.run()
 

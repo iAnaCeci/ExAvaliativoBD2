@@ -44,13 +44,47 @@ class MotoristaCLI(SimpleCLI):
         con_banco = MotoristaDAO(Database("ExAvaliativoAtlas","motorista"))
         con_banco.create_motorista(motorista)
 
-    def read_motorista(self):
+    def read_motorista(self, motorista=None):
+        # def read_motorista(self):
+        #     motorista_id = int(input("Enter the ID of the motorista you want to read: "))
+        #     con_banco = MotoristaDAO(Database("ExAvaliativoAtlas", "motorista"))
+        #     motorista = con_banco.read_motorista(motorista_id)
+        #     if motorista:
+        #         print("Motorista found!")
+        #         print(motorista)
+        #     else:
+        #         print("Motorista not found.")
         pass
-
     def update_motorista(self):
+        # motorista_id = int(input("Enter the ID of the motorista you want to update: "))
+        # con_banco = MotoristaDAO(Database("ExAvaliativoAtlas", "motorista"))
+        # motorista = con_banco.read_motorista(motorista_id)
+        # if motorista:
+        #     print("Motorista encontrado!")
+        #     nota = int(input("Enter the new nota: "))
+        #     nota_corrida = int(input("Enter the new nota da corrida: "))
+        #     distancia = float(input("Enter the new distancia: "))
+        #     valor = float(input("Enter the new valor: "))
+        #     motorista.nota = nota
+        #     motorista.corrida.nota = nota_corrida
+        #     motorista.corrida.distancia = distancia
+        #     motorista.corrida.valor = valor
+        #     con_banco.update_motorista(motorista)
+        #     print("Motorista atualizado!")
+        # else:
+        #     print("Motorista not found.")
         pass
 
     def delete_motorista(self):
+        # motorista_id = int(input("Enter the ID of the motorista you want to delete: "))
+        # con_banco = MotoristaDAO(Database("ExAvaliativoAtlas", "motorista"))
+        # motorista = con_banco.read_motorista(motorista_id)
+        # if motorista:
+        #     print("Motorista encontrado!")
+        #     con_banco.delete_motorista(motorista)
+        #     print("Motorista deletado!")
+        # else:
+        #     print("Motorista nao encontrado.")
         pass
 
     def run(self):
