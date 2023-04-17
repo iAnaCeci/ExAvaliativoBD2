@@ -1,19 +1,18 @@
 from pymongo import MongoClient
 
-from cli import MotoristaCLI
-from MotoristaDAO import Motorista
-from MotoristaDAO import Corrida
-from MotoristaDAO import Passageiro
-
-client = MongoClient("mongodb://localhost:27017/")
-
-db = client["ExAvaliativo"]
-motoristaCLI = MotoristaCLI(database=db)
+from Model.Corrida import Corrida
+from Model.Motorista import Motorista
+from Model.Passageiro import Passageiro
+from MotoristaCLI import MotoristaCLI
 
 
-motorista = Motorista(db)
-corrida = Corrida(db)
-passageiro = Passageiro(db)
+client = MongoClient("mongodb+srv://cecisfer:Al0homora@cluster0.krecme4.mongodb.net/?retryWrites=true&w=majority")
+
+db = client["S202-L2"]
+
+motoristaCLI = MotoristaCLI()
+motoristaCLI.create_motorista()
 
 
-motoristaCLI.run()
+
+

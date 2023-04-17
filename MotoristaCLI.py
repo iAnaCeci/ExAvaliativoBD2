@@ -1,4 +1,9 @@
-from MotoristaDAO import Motorista, Corrida, Passageiro
+from Model.Corrida import Corrida
+from Model.Motorista import Motorista
+from Model.Passageiro import Passageiro
+from MotoristaDAO import MotoristaDAO
+from Database import Database
+
 class SimpleCLI:
     def __init__(self):
         self.commands = {}
@@ -19,37 +24,34 @@ class SimpleCLI:
 
 
 class MotoristaCLI(SimpleCLI):
-    def __init__(self, motorista_model):
+    def __init__(self):
         super().__init__()
-        self.motorista_model = motorista_model
-        self.add_command("create", self.create_motorista)
-        self.add_command("read", self.read_motorista)
-        self.add_command("update", self.update_motorista)
-        self.add_command("delete", self.delete_motorista)
+        self.add_command("create",self.create_motorista())
+        self.add_command("read",self.read_motorista())
+        self.add_command("update",self.update_motorista())
+        self.add_command("delete",self.delete_motorista())
 
     def create_motorista(self):
-        corridas = input("Enter the title: ")
-        nota =  input("Enter the autor: ")
-        nome = input("Enter the passenger name: ")
-        documento = input("Enter the passenger document: ")
-        self.motorista_model.create_person(corridas, nota)
-        passageiro = Passageiro(nome, documento)
+        nota = int(input("Entre com a nota"))
+        nota_corrida = int(input("Entre com a nota da corrida"))
+        distancia = float(input("Entre com a distancia"))
+        valor = float(input("Entre com o valor"))
+        passageiro_nome = input("Nome do passageiro")
+        passageiro_documento = input("Documento do passageiro")
+        passageiro = Passageiro(passageiro_nome,passageiro_documento)
+        corrida = Corrida(nota_corrida,distancia,valor,passageiro)
+        motorista = Motorista(corrida,nota)
+        con_banco = MotoristaDAO(Database("ExAvaliativoAtlas","motorista"))
+        con_banco.create_motorista(motorista)
+
     def read_motorista(self):
-        id = input("Enter the id: ")
-        motorista = self.motorista_model.read_person_by_id(id)
-        if motorista:
-            print(f"corridas: {motorista['corridas']}")
-            print(f"nota: {motorista['nota']}")
+        pass
 
     def update_motorista(self):
-        id = input("Enter the id: ")
-        corridas = int(input("Enter: "))
-        nota = int(input("Enter the new score:"))
-        self.motorista_model.update_person(id, corridas,nota)
+        pass
 
     def delete_motorista(self):
-        id = input("Enter the id: ")
-        self.motorista.delete_person(id)
+        pass
 
     def run(self):
         print("Welcome to the Motorista CLI!")
