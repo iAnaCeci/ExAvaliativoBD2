@@ -10,6 +10,8 @@ client = MongoClient("mongodb+srv://cecisfer:Al0homora@cluster0.krecme4.mongodb.
 
 db = client["S202-L2"]
 
+
+#só desse jeito que funcionou
 motoristaCLI = MotoristaCLI()
 motoristaCLI.create_motorista()
 
